@@ -1,0 +1,7 @@
+*.csv
+*.pkl
+*.pyc
+.vscode
+*~
+*.swp
+**/.DS_Store

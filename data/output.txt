@@ -1,0 +1,103 @@
+Question 1: 
+*
+╠══ *
+║   ╠══ 1
+║   ╚══ 9
+╚══ ^
+    ╠══ 2
+    ╚══ 6
+
+Prefix:  * ^ 6 2 * 9 1
+Postfix:  6 2 ^ 9 1 * *
+Infix:  ( 6 ^ 2 ) * ( 9 * 1 )
+
+Question 2: 
+└──&
+    ├──&
+    |   ├──!
+    |   |   └──!
+    |   |       └──1
+    |   └──0
+    └──B
+1. A random logic expression:
+	 (((~(~1)) & 0) & B)
+2. Simplify it:
+	 False
+3. Is is satisfiable?
+	 No
+4. All satisfying assignments:
+	UNSAT
+
+Question 3: 
+└──!
+    └──&
+        ├──A
+        └──&
+            ├──!
+            |   └──C
+            └──0
+1. A random logic expression:
+	 (~(A & ((~C) & 0)))
+2. Simplify it:
+	 True
+3. Is is satisfiable?
+	 Yes
+4. All satisfying assignments:
+	{True : True,	}
+
+Question 4: 
+Evaluate (3657)_8 + (16646)_8 + (7103)_8 and express the answer in base 8.
+31630
+
+Question 5: 
+Order these numbers largest to smallest: 10541_8, 11000_2, 678_10
+10541_8, 678_10, 11000_2
+
+Question 6: 
+Evaluate (3222)_8 + (3110)_8 + (4170)_8 and express the answer in base 8.
+12522
+
+Question 7: 
+Convert (111100)_2 to base 8.
+74
+
+Question 8: 
+Order these numbers largest to smallest: 178_10, 100001_2, 7440_8
+7440_8, 178_10, 100001_2
+
+Question 9: 
+How many more 1s are in the binary representations of (decimal) numbers from 11 to 18 than from 19 to 22?
+9
+
+Question 10: 
+└──|
+    ├──|
+    |   ├──0
+    |   └──!
+    |       └──!
+    |           └──!
+    |               └──B
+    └──!
+        └──!
+            └──B
+1. A random logic expression:
+	 ((0 | (~(~(~B)))) | (~(~B)))
+2. Simplify it:
+	 True
+3. Is is satisfiable?
+	 Yes
+4. All satisfying assignments:
+	{True : True,	}
+
+Question 11: 
+Given the two colors #E74BC8 and #8C50A8, what is the difference between the hexadecimal values of the green color components?
+05
+
+Question 12: 
+Given the two colors #BE61DA and #276634, what is the difference between the hexadecimal values of the green color components?
+05
+
+Question 13: 
+Given the two colors #2A7258 and #3B6364, what is the difference between the hexadecimal values of the red color components?
+11
+
