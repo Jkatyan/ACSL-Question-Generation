@@ -24,10 +24,8 @@ class Question:
 
 
 class QuestionList:
-    def __init__(self, logic=None, trees=None):
+    def __init__(self):
         self.list = []
-        self.logic = logic
-        self.trees = trees
 
     def add_question(self, question):
         self.list.append(question)
