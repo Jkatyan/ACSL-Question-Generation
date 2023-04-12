@@ -1,103 +1,556 @@
 Question 1: 
-*
+Find the postfix expression for this expression tree:
+/
 ╠══ *
-║   ╠══ 1
-║   ╚══ 9
-╚══ ^
-    ╠══ 2
-    ╚══ 6
+║   ╠══ a
+║   ╚══ y
+╚══ /
+    ╠══ m
+    ╚══ m
 
-Prefix:  * ^ 6 2 * 9 1
-Postfix:  6 2 ^ 9 1 * *
-Infix:  ( 6 ^ 2 ) * ( 9 * 1 )
+m m / y a * /
 
 Question 2: 
-└──&
-    ├──&
-    |   ├──!
-    |   |   └──!
-    |   |       └──1
-    |   └──0
-    └──B
-1. A random logic expression:
-	 (((~(~1)) & 0) & B)
-2. Simplify it:
-	 False
-3. Is is satisfiable?
-	 No
-4. All satisfying assignments:
-	UNSAT
+Find the postfix expression for this expression tree:
+/
+╠══ *
+║   ╠══ 6
+║   ╚══ 8
+╚══ -
+    ╠══ 3
+    ╚══ 6
+
+6 3 - 8 6 * /
 
 Question 3: 
-└──!
-    └──&
-        ├──A
-        └──&
-            ├──!
-            |   └──C
-            └──0
-1. A random logic expression:
-	 (~(A & ((~C) & 0)))
-2. Simplify it:
-	 True
-3. Is is satisfiable?
-	 Yes
-4. All satisfying assignments:
-	{True : True,	}
+Find the infix expression for this expression tree:
+*
+╠══ -
+║   ╠══ 4
+║   ╚══ 9
+╚══ -
+    ╠══ 1
+    ╚══ 3
+
+( 3 - 1 ) * ( 9 - 4 )
 
 Question 4: 
-Evaluate (3657)_8 + (16646)_8 + (7103)_8 and express the answer in base 8.
-31630
+Convert postfix to infix: 7 2 ^ 9 1 * *
+( 7 ^ 2 ) * ( 9 * 1 )
 
 Question 5: 
-Order these numbers largest to smallest: 10541_8, 11000_2, 678_10
-10541_8, 678_10, 11000_2
+Find the prefix expression for this expression tree:
+/
+╠══ *
+║   ╠══ 1
+║   ╚══ 7
+╚══ -
+    ╠══ 1
+    ╚══ 5
+
+/ - 5 1 * 7 1
 
 Question 6: 
-Evaluate (3222)_8 + (3110)_8 + (4170)_8 and express the answer in base 8.
-12522
+Find the prefix expression for this expression tree:
+-
+╠══ -
+║   ╠══ b
+║   ╚══ n
+╚══ /
+    ╠══ n
+    ╚══ x
+
+- / x n - n b
 
 Question 7: 
-Convert (111100)_2 to base 8.
-74
+Convert infix to prefix: ( 3 / 2 ) / ( 3 + 3 )
+/ / 3 2 + 3 3
 
 Question 8: 
-Order these numbers largest to smallest: 178_10, 100001_2, 7440_8
-7440_8, 178_10, 100001_2
+Find the prefix expression for this expression tree:
+^
+╠══ *
+║   ╠══ x
+║   ╚══ y
+╚══ -
+    ╠══ m
+    ╚══ n
+
+^ - n m * y x
 
 Question 9: 
-How many more 1s are in the binary representations of (decimal) numbers from 11 to 18 than from 19 to 22?
-9
+Find the postfix expression for this expression tree:
+/
+╠══ -
+║   ╠══ 6
+║   ╚══ 9
+╚══ /
+    ╠══ 1
+    ╚══ 6
+
+6 1 / 9 6 - /
 
 Question 10: 
-└──|
-    ├──|
-    |   ├──0
-    |   └──!
-    |       └──!
-    |           └──!
-    |               └──B
-    └──!
-        └──!
-            └──B
-1. A random logic expression:
-	 ((0 | (~(~(~B)))) | (~(~B)))
-2. Simplify it:
-	 True
-3. Is is satisfiable?
-	 Yes
-4. All satisfying assignments:
-	{True : True,	}
+Find the infix expression for this expression tree:
+/
+╠══ *
+║   ╠══ 1
+║   ╚══ 5
+╚══ *
+    ╠══ 1
+    ╚══ 2
+
+( 2 * 1 ) / ( 5 * 1 )
 
 Question 11: 
-Given the two colors #E74BC8 and #8C50A8, what is the difference between the hexadecimal values of the green color components?
-05
+Convert postfix to prefix: y n - n m * ^
+^ - y n * n m
 
 Question 12: 
-Given the two colors #BE61DA and #276634, what is the difference between the hexadecimal values of the green color components?
-05
+Evaluate the postfix expression: 5 3 * 9 1 * -
+6
 
 Question 13: 
-Given the two colors #2A7258 and #3B6364, what is the difference between the hexadecimal values of the red color components?
-11
+Find the postfix expression for this expression tree:
+*
+╠══ *
+║   ╠══ 3
+║   ╚══ 4
+╚══ ^
+    ╠══ 1
+    ╚══ 4
+
+4 1 ^ 4 3 * *
+
+Question 14: 
+Find the infix expression for this expression tree:
+-
+╠══ +
+║   ╠══ 8
+║   ╚══ 9
+╚══ +
+    ╠══ 4
+    ╚══ 4
+
+( 4 + 4 ) - ( 9 + 8 )
+
+Question 15: 
+Convert prefix to infix: - ^ 9 9 + 6 6
+( 9 ^ 9 ) - ( 6 + 6 )
+
+Question 16: 
+Find the postfix expression for this expression tree:
+^
+╠══ *
+║   ╠══ m
+║   ╚══ y
+╚══ *
+    ╠══ n
+    ╚══ x
+
+x n * y m * ^
+
+Question 17: 
+Evaluate the prefix expression: * / 5 4 + 6 3
+9
+
+Question 18: 
+Evaluate the prefix expression: - / 4 1 + 8 7
+-11
+
+Question 19: 
+Find the prefix expression for this expression tree:
+-
+╠══ +
+║   ╠══ a
+║   ╚══ x
+╚══ +
+    ╠══ m
+    ╚══ x
+
+- + x m + x a
+
+Question 20: 
+Find the infix expression for this expression tree:
++
+╠══ -
+║   ╠══ 2
+║   ╚══ 4
+╚══ /
+    ╠══ 4
+    ╚══ 6
+
+( 6 / 4 ) + ( 4 - 2 )
+
+Question 21: 
+Find the infix expression for this expression tree:
+*
+╠══ /
+║   ╠══ b
+║   ╚══ x
+╚══ ^
+    ╠══ m
+    ╚══ y
+
+( y ^ m ) * ( x / b )
+
+Question 22: 
+Convert prefix to postfix: + ^ m a / y a
+m a ^ y a / +
+
+Question 23: 
+Convert prefix to infix: ^ - m m * m m
+( m - m ) ^ ( m * m )
+
+Question 24: 
+Find the infix expression for this expression tree:
++
+╠══ +
+║   ╠══ 3
+║   ╚══ 3
+╚══ -
+    ╠══ 1
+    ╚══ 2
+
+( 2 - 1 ) + ( 3 + 3 )
+
+Question 25: 
+Find the prefix expression for this expression tree:
+-
+╠══ +
+║   ╠══ m
+║   ╚══ y
+╚══ /
+    ╠══ n
+    ╚══ x
+
+- / x n + y m
+
+Question 26: 
+Is ((~P) & (~(~(~U)))) a tautology?
+No this is not a tautology.
+
+Question 27: 
+Identify all satisfying assignments for ((~P) | ((~U) & C)).
+{C : True P : False U : False }
+{C : False P : False U : False }
+{C : True P : False U : True }
+{C : False P : False U : True }
+{C : True P : True U : False }
+
+Question 28: 
+Identify all satisfying assignments for (~(~((W | W) & A))).
+{A : True W : True }
+
+Question 29: 
+How many ordered pairs make (((~K) | (~1)) | H) false?
+There are 5 pairs that make (((~K) | (~y)) | H) false.
+
+Question 30: 
+Is ((~M) & (~(~(~G)))) satisfiable?
+Yes
+
+Question 31: 
+Is (~(~(K & (~(~1))))) a tautology?
+No this is not a tautology.
+
+Question 32: 
+How many ordered pairs make ((~(~(~G))) | (~W)) false?
+There are 5 pairs that make ((~(~(~G))) | (~W)) false.
+
+Question 33: 
+Is (~((~M) & (~(~B)))) satisfiable?
+Yes
+
+Question 34: 
+Is (~(~(~((~D) | 1)))) satisfiable?
+No
+
+Question 35: 
+How many ordered pairs make (~((~W) & (~(~A)))) false?
+There are 5 pairs that make (~((~W) & (~(~A)))) false.
+
+Question 36: 
+Identify all satisfying assignments for ((A | (~K)) | (~U)).
+{A : True K : False U : False }
+{A : False K : False U : False }
+{A : True K : False U : True }
+{A : False K : False U : True }
+{A : True K : True U : False }
+{A : False K : True U : False }
+{A : True K : True U : True }
+
+Question 37: 
+Is ((~(K | (~A))) & C) satisfiable?
+Yes
+
+Question 38: 
+How many ordered pairs make (~(~(~((~1) | A)))) true?
+There are 1 pairs that make (~(~(~((~y) | A)))) true.
+
+Question 39: 
+How many ordered pairs make (~((D & 1) & (~A))) false?
+There are 5 pairs that make (~((D & y) & (~A))) false.
+
+Question 40: 
+Is (B | ((C | M) & D)) a tautology?
+No this is not a tautology.
+
+Question 41: 
+How many ordered pairs make (((~B) | W) | (~C)) true?
+There are 7 pairs that make (((~B) | W) | (~C)) true.
+
+Question 42: 
+How many ordered pairs make ((~(~H)) | (~(~P))) false?
+There are 5 pairs that make ((~(~H)) | (~(~P))) false.
+
+Question 43: 
+Is ((1 & (~P)) & (~M)) satisfiable?
+Yes
+
+Question 44: 
+Identify all satisfying assignments for ((0 & (G | D)) | D).
+{D : True }
+
+Question 45: 
+Identify all satisfying assignments for ((~(~M)) & (~(~1))).
+{M : True }
+
+Question 46: 
+Identify all satisfying assignments for ((~0) | (H | (~B))).
+{True : True }
+
+Question 47: 
+Identify all satisfying assignments for ((~A) & ((~W) | G)).
+{A : False G : True W : False }
+{A : False G : False W : False }
+{A : False G : True W : True }
+
+Question 48: 
+Simplify ((B | (~0)) & (~K)).
+~K
+
+Question 49: 
+Identify all satisfying assignments for (((~(~0)) | G) & K).
+{G : True K : True }
+
+Question 50: 
+Is (((~P) & C) | (~M)) a tautology?
+No this is not a tautology.
+
+Question 51: 
+Given the two colors #5CB893 and #5CBCD3, what is the difference between the hexadecimal values of the blue color components?
+40
+
+Question 52: 
+Evaluate (101011)_2 + (111110)_2 + (10001)_2 and express the answer in base 8.
+172
+
+Question 53: 
+Convert (101010)_2 to base 16.
+2a
+
+Question 54: 
+Convert (111101)_2 to base 16.
+3d
+
+Question 55: 
+Order these numbers largest to smallest: 11101_2, 7667_8, 100000_2
+7667_8, 100000_2, 11101_2
+
+Question 56: 
+Convert (111101)_2 to base 8.
+75
+
+Question 57: 
+How many more 1s are in the binary representations of (decimal) numbers from 20 to 29 than from 12 to 17?
+16
+
+Question 58: 
+Convert (12671)_8 to base 2.
+1010110111001
+
+Question 59: 
+How many more 1s are in the binary representations of (decimal) numbers from 12 to 14 than from 10 to 12?
+1
+
+Question 60: 
+Evaluate (7770)_8 + (2402)_8 + (4770)_8 and express the answer in base 16.
+1ef2
+
+Question 61: 
+Order these numbers largest to smallest: 11010_2, 9b71_16, 144_10
+9b71_16, 144_10, 11010_2
+
+Question 62: 
+Evaluate (10102)_8 + (13536)_8 + (3577)_8 and express the answer in base 2.
+10111100011111
+
+Question 63: 
+Order these numbers largest to smallest: 11011_2, 10116_8, 5152_8
+10116_8, 5152_8, 11011_2
+
+Question 64: 
+How many more 1s are in the binary representations of (decimal) numbers from 14 to 22 than from 19 to 20?
+18
+
+Question 65: 
+Order these numbers largest to smallest: 4502_8, 2532_16, a508_16
+a508_16, 2532_16, 4502_8
+
+Question 66: 
+Order these numbers largest to smallest: 11110_2, fa5d_16, 3357_8
+fa5d_16, 3357_8, 11110_2
+
+Question 67: 
+Evaluate (15215)_8 + (3215)_8 + (11056)_8 and express the answer in base 16.
+3348
+
+Question 68: 
+How many more 1s are in the binary representations of (decimal) numbers from 10 to 20 than from 9 to 14?
+12
+
+Question 69: 
+Convert (4167)_8 to base 16.
+877
+
+Question 70: 
+Given the two colors #0097FE and #088A5F, what is the difference between the hexadecimal values of the blue color components?
+9F
+
+Question 71: 
+How many more 1s are in the binary representations of (decimal) numbers from 9 to 18 than from 10 to 17?
+4
+
+Question 72: 
+Convert (13073)_8 to base 16.
+163b
+
+Question 73: 
+Convert (521a)_16 to base 2.
+101001000011010
+
+Question 74: 
+Order these numbers largest to smallest: 5277_8, 382_10, 629e_16
+629e_16, 5277_8, 382_10
+
+Question 75: 
+Order these numbers largest to smallest: 477_10, e6be_16, 11251_8
+e6be_16, 11251_8, 477_10
+
+Question 76: 
+Identify all of the simple paths from vertex A to vertex F in the graph with vertices ['A', 'B', 'C', 'D', 'E', 'F'] and edges [('A', 'B'), ('A', 'C'), ('A', 'E'), ('B', 'E'), ('B', 'F'), ('C', 'E'), ('C', 'F'), ('E', 'F')].
+There are 9 paths. The paths are ['ABECF', 'ABEF', 'ABF', 'ACEBF', 'ACEF', 'ACF', 'AEBF', 'AECF', 'AEF'].
+
+Question 77: 
+How many edges are there in a complete graph with 5 vertices?
+There are 10 edges.
+
+Question 78: 
+How many edges are there in a complete graph with 6 vertices?
+There are 15 edges.
+
+Question 79: 
+Identify all cycles contained in the graph with vertices ['A', 'B', 'C', 'D', 'E', 'F'] and edges [('A', 'D'), ('A', 'E'), ('B', 'D'), ('B', 'F'), ('D', 'E')].
+By inspection, the cycles are ['AEDA'].
+
+Question 80: 
+How many paths of length 3 are there in the graph with vertices ['A', 'B', 'C', 'D', 'E'] and edges [('A', 'B'), ('A', 'C'), ('A', 'E'), ('B', 'D'), ('C', 'E'), ('D', 'E')].
+There are 20 paths. The paths are ['AEDB', 'ACED', 'ABDE', 'BDEA', 'BAEC', 'BDEC', 'BAED', 'BACE', 'CEAB', 'CEDB', 'CABD', 'CAED', 'DECA', 'DEAB', 'DBAC', 'DEAC', 'DBAE', 'EDBA', 'ECAB', 'EABD'].
+
+Question 81: 
+Find the number of different cycles contained in the graph with vertices ['A', 'B', 'C', 'D', 'E', 'F'] and edges [('A', 'C'), ('B', 'C'), ('B', 'E'), ('C', 'D'), ('C', 'F'), ('D', 'E')].
+There are 1 cycles in the graph.
+
+Question 82: 
+Identify all of the simple paths from vertex C to vertex A in the graph with vertices ['A', 'B', 'C', 'D', 'E'] and edges [('A', 'C'), ('A', 'E'), ('B', 'D'), ('B', 'E'), ('C', 'E')].
+There are 2 paths. The paths are ['CA', 'CEA'].
+
+Question 83: 
+Identify all of the simple paths from vertex D to vertex F in the graph with vertices ['A', 'B', 'C', 'D', 'E', 'F'] and edges [('A', 'E'), ('B', 'E'), ('B', 'F'), ('C', 'D'), ('C', 'E'), ('C', 'F'), ('D', 'E'), ('D', 'F'), ('E', 'F')].
+There are 7 paths. The paths are ['DCEBF', 'DCEF', 'DCF', 'DEBF', 'DECF', 'DEF', 'DF'].
+
+Question 84: 
+List all simple paths of length 3 starting from vertex D in the graph with vertices ['A', 'B', 'C', 'D', 'E'] and edges [('A', 'D'), ('B', 'C'), ('B', 'D'), ('B', 'E'), ('C', 'D'), ('C', 'E'), ('D', 'E')].
+There are 6 paths. The paths are ['DBCE', 'DBEC', 'DCBE', 'DCEB', 'DEBC', 'DECB'].
+
+Question 85: 
+How many paths of length 5 are there in the graph with vertices ['A', 'B', 'C', 'D', 'E', 'F'] and edges [('A', 'B'), ('A', 'C'), ('A', 'D'), ('A', 'F'), ('B', 'E'), ('B', 'F'), ('C', 'D'), ('C', 'E'), ('D', 'F')].
+There are 52 paths. The paths are ['AFDCEB', 'ADFBEC', 'ACEBFD', 'AFBECD', 'ABFDCE', 'ACDFBE', 'ABECDF', 'ADCEBF', 'BECDFA', 'BECAFD', 'BAFDCE', 'BFADCE', 'BFDACE', 'BECADF', 'BECDAF', 'CEBFDA', 'CEBAFD', 'CEBFAD', 'CADFBE', 'CDAFBE', 'CDFABE', 'CEBADF', 'DCEBFA', 'DFBECA', 'DFACEB', 'DAFBEC', 'DFABEC', 'DCAFBE', 'DFBACE', 'DACEBF', 'DCEBAF', 'EBFDCA', 'ECDFBA', 'ECADFB', 'ECDAFB', 'ECDFAB', 'EBAFDC', 'EBFADC', 'EBFDAC', 'EBFACD', 'ECABFD', 'EBACDF', 'ECDABF', 'FBECDA', 'FDCEBA', 'FADCEB', 'FDACEB', 'FDABEC', 'FABECD', 'FBECAD', 'FBADCE', 'FDCABE'].
+
+Question 86: 
+Identify all of the simple paths from vertex D to vertex C in the graph with vertices ['A', 'B', 'C', 'D', 'E'] and edges [('A', 'B'), ('A', 'D'), ('B', 'D'), ('B', 'E'), ('C', 'D')].
+There is 1 path. The path is ['DC'].
+
+Question 87: 
+List all simple paths of length 2 starting from vertex A in the graph with vertices ['A', 'B', 'C', 'D', 'E'] and edges [('A', 'B'), ('A', 'E'), ('B', 'D'), ('C', 'D'), ('C', 'E')].
+There are 2 paths. The paths are ['ABD', 'AEC'].
+
+Question 88: 
+Identify all cycles contained in the graph with vertices ['A', 'B', 'C', 'D', 'E', 'F'] and edges [('A', 'C'), ('A', 'E'), ('B', 'D'), ('B', 'F'), ('C', 'F'), ('D', 'E'), ('D', 'F'), ('E', 'F')].
+By inspection, the cycles are ['AEDBFCA', 'AEDFCA', 'AEFCA', 'BFEDB', 'BFDB', 'DFED'].
+
+Question 89: 
+Identify all of the simple paths from vertex F to vertex D in the graph with vertices ['A', 'B', 'C', 'D', 'E', 'F'] and edges [('A', 'D'), ('A', 'F'), ('B', 'F'), ('C', 'D'), ('C', 'F'), ('D', 'F')].
+There are 3 paths. The paths are ['FAD', 'FCD', 'FD'].
+
+Question 90: 
+List all edges of a complete graph with 5 vertices by using V = [0, 1, 2, 3, 4].
+[(0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 4)]
+
+Question 91: 
+List all simple paths of length 2 starting from vertex A in the graph with vertices ['A', 'B', 'C', 'D', 'E', 'F'] and edges [('A', 'C'), ('B', 'C'), ('C', 'E'), ('C', 'F'), ('D', 'E'), ('D', 'F')].
+There are 3 paths. The paths are ['ACB', 'ACE', 'ACF'].
+
+Question 92: 
+Identify all of the simple paths from vertex E to vertex A in the graph with vertices ['A', 'B', 'C', 'D', 'E'] and edges [('A', 'D'), ('B', 'C'), ('B', 'D')].
+No paths exist.
+
+Question 93: 
+Find the number of different cycles contained in the graph with vertices ['A', 'B', 'C', 'D', 'E', 'F'] and edges [('A', 'C'), ('A', 'E'), ('B', 'C'), ('B', 'D'), ('C', 'D'), ('C', 'F')].
+There are 1 cycles in the graph.
+
+Question 94: 
+List all simple paths of length 3 starting from vertex C in the graph with vertices ['A', 'B', 'C', 'D', 'E'] and edges [('A', 'B'), ('A', 'C'), ('A', 'E'), ('B', 'C'), ('B', 'E'), ('C', 'D')].
+There are 4 paths. The paths are ['CABE', 'CAEB', 'CBAE', 'CBEA'].
+
+Question 95: 
+How many edges are there in a complete graph with 7 vertices?
+There are 21 edges.
+
+Question 96: 
+Identify all cycles contained in the graph with vertices ['A', 'B', 'C', 'D', 'E'] and edges [('A', 'B'), ('B', 'C'), ('B', 'D'), ('B', 'E'), ('C', 'D'), ('D', 'E')].
+By inspection, the cycles are ['BDCB', 'BEDCB', 'BEDB'].
+
+Question 97: 
+List all simple paths of length 4 starting from vertex E in the graph with vertices ['A', 'B', 'C', 'D', 'E'] and edges [('A', 'B'), ('A', 'C'), ('A', 'E'), ('B', 'E'), ('C', 'E'), ('D', 'E')].
+No paths exist.
+
+Question 98: 
+Identify all of the simple paths from vertex A to vertex E in the graph with vertices ['A', 'B', 'C', 'D', 'E', 'F'] and edges [('A', 'C'), ('A', 'E'), ('B', 'D'), ('D', 'E'), ('D', 'F')].
+There is 1 path. The path is ['AE'].
+
+Question 99: 
+List all edges of a complete graph with 5 vertices by using V = [0, 1, 2, 3, 4].
+[(0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 4)]
+
+Question 100: 
+How many paths of length 2 are there in the graph with vertices ['A', 'B', 'C', 'D', 'E'] and edges [('A', 'C'), ('B', 'C'), ('C', 'E')].
+There are 6 paths. The paths are ['ACB', 'ACE', 'BCA', 'BCE', 'ECA', 'ECB'].
+
+Question 101: 
+Identify all satisfying assignments for ((~C) & ((1 & H) & (0 | G))).
+{C : False G : True H : True }
+
+Question 102: 
+Given the two colors #85B09C and #549067, what is the difference between the hexadecimal values of the blue color components?
+35
+
+Question 103: 
+Given the two colors #4E035C and #265152, what is the difference between the hexadecimal values of the red color components?
+28
+
+Question 104: 
+Given the two colors #115434 and #A53C85, what is the difference between the hexadecimal values of the red color components?
+94
 

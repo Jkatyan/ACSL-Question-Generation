@@ -1,8 +1,6 @@
 import random
 import copy
 
-# random.seed(10)
-
 class Node(object):
   def __init__(self, data=None):
     self.data = data
@@ -12,18 +10,23 @@ class Node(object):
     self.children.append(obj)
 
 const_list = ['0', '1']
-var_list = [chr(ch) for ch in range(65, 91)]
+var_list = ['A', 'B', 'C', 'D', 'G', 'H', 'K', 'M', 'P', 'U', 'W']
+
 def random_binary_tree(n=10, vars=3, const=False):
+  global CONST_PROBABILITY  
+
   if (n == 0):
     return None
   
+  random.shuffle(var_list)
+
   # Number of nodes in the left subtree (in [0, n-1])
   left_subtree_size = random.randrange(n)
   # Fill the node operator
   # root = Node(n)
   if n == 1:
     if const:
-      root = Node(random.choice(const_list+var_list[:vars]))
+      root = Node(random.choice(const_list+var_list[:vars]+var_list[:vars]+var_list[:vars]+var_list[:vars]))
     else:
       root = Node(random.choice(var_list[:vars]))
   elif left_subtree_size == 0 or left_subtree_size == n - 1:

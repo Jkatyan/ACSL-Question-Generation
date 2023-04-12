@@ -179,21 +179,25 @@ def generate_question_4():
 def generate_question_5():
     global COUNT
 
-    def generate_random_number():
+    def generate_random_number(existing_nums):
         global BASE_2_LOWER, BASE_2_UPPER, BASE_8_LOWER, BASE_8_UPPER, BASE_10_LOWER, BASE_10_UPPER, BASE_16_LOWER, BASE_16_UPPER
 
         base = random.choice([2, 8, 10, 16])
-        if base == 2: num = bin(random.randint(BASE_2_LOWER, BASE_2_UPPER))[2:]
-        elif base == 8: num = oct(random.randint(BASE_8_LOWER, BASE_8_UPPER))[2:]
-        elif base == 10: num = str(random.randint(BASE_10_LOWER, BASE_10_UPPER))
-        elif base == 16: num = hex(random.randint(BASE_16_LOWER, BASE_16_UPPER))[2:]
-        return num, base
+        while True:
+            if base == 2: num = bin(random.randint(BASE_2_LOWER, BASE_2_UPPER))[2:]
+            elif base == 8: num = oct(random.randint(BASE_8_LOWER, BASE_8_UPPER))[2:]
+            elif base == 10: num = str(random.randint(BASE_10_LOWER, BASE_10_UPPER))
+            elif base == 16: num = hex(random.randint(BASE_16_LOWER, BASE_16_UPPER))[2:]
+            if (num, base) not in existing_nums:
+                return num, base
 
     def question(count):
         values = []
+        existing_nums = set()
         for i in range(count):
-            num, base = generate_random_number()
+            num, base = generate_random_number(existing_nums)
             values.append((num, base))
+            existing_nums.add((num, base))
         return values
     
     def answer(values):
@@ -204,6 +208,7 @@ def generate_question_5():
     print(f"Order these numbers largest to smallest: {', '.join([f'{num}_{base}' for num, base in values])}")
     sorted_values = answer(values)
     print(', '.join([f'{num}_{base}' for num, base in sorted_values]))
+
 
 
 def main():
