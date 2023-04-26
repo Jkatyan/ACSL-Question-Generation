@@ -1,5 +1,4 @@
 import random
-import copy
 
 class Node(object):
   def __init__(self, data=None):
@@ -9,34 +8,65 @@ class Node(object):
   def add_child(self, obj):
     self.children.append(obj)
 
-const_list = ['0', '1']
-var_list = ['A', 'B', 'C', 'D', 'G', 'H', 'K', 'M', 'P', 'U', 'W']
+def add_random_negations(root):
+  if not root:
+    return
+  
+  if random.random() < 0.5: # 50% chance of negating the subtree
+    if root.data == '&':
+      root.data = '|'
+    elif root.data == '|':
+      root.data = '&'
+    elif root.data != '!':
+      root.data = '!' + root.data
+    
+    for child in root.children:
+      add_random_negations(child)
+  else:
+    for child in root.children:
+      add_random_negations(child)
 
-def random_binary_tree(n=10, vars=3, const=False):
-  global CONST_PROBABILITY  
+def helper(n=10, vars=3, unique=2, const=False, lst=None):
+  # Probability of generating constant values
+  CONST_PROBABILITY = 0.1
+
+  const_list = ['0', '1']
+  var_list = ['A', 'B', 'C', 'D', 'G', 'H', 'K', 'M', 'P', 'U', 'W']
 
   if (n == 0):
     return None
   
-  random.shuffle(var_list)
+  if not lst:
+    random.shuffle(var_list)
+    lst = random.sample(var_list[:vars], unique)
 
   # Number of nodes in the left subtree (in [0, n-1])
-  left_subtree_size = random.randrange(n)
-  # Fill the node operator
-  # root = Node(n)
+  for _ in range(5): # Increase this value to make ~ less likely
+    left_subtree_size = random.randrange(n)
+    if left_subtree_size == 1:
+      break
+    if left_subtree_size != 0 and left_subtree_size != n - 1:
+      break
+
   if n == 1:
     if const:
-      root = Node(random.choice(const_list+var_list[:vars]+var_list[:vars]+var_list[:vars]+var_list[:vars]))
+      prob = CONST_PROBABILITY * 10
+      combined = int(prob) * const_list + int((10 - prob)) * lst
+      root = Node(random.choice(combined))
     else:
-      root = Node(random.choice(var_list[:vars]))
+      root = Node(random.choice(lst))
   elif left_subtree_size == 0 or left_subtree_size == n - 1:
     root = Node('!')
   else:
     root = Node(random.choice(['&', '|']))
   
   # Recursively build each subtree
-  root.add_child(random_binary_tree(left_subtree_size, vars, const))
-  root.add_child(random_binary_tree(n - left_subtree_size - 1, vars, const))
+  root.add_child(helper(left_subtree_size, vars, unique, const, lst=lst))
+  root.add_child(helper(n - left_subtree_size - 1, vars, unique, const, lst=lst))
+  return root
+
+def random_binary_tree(n=10, vars=3, unique=2, const=False, lst=None):
+  root = helper(n=n, vars=vars, unique=unique, const=const, lst=None)
   return root
 
 def print_tree(node, prefix="", is_last=True):

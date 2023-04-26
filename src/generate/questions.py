@@ -1,3 +1,4 @@
+import os
 import sys
 from io import StringIO
 
@@ -32,6 +33,7 @@ class Question:
 class QuestionList:
     def __init__(self):
         self.list = []
+        self.clear_images()
 
     def add_question(self, question):
         self.list.append(question)
@@ -52,6 +54,14 @@ class QuestionList:
         func = functions_map.get(function)
         if func is not None:
             func(**params)
+
+    def clear_images(self):
+        sys.path.append(os.path.abspath('../../../'))
+        directory = './data/images'
+        for filename in os.listdir(directory):
+            filepath = os.path.join(directory, filename)
+            if os.path.isfile(filepath):
+                os.remove(filepath)
 
     def print_questions(self):
         for i in range(len(self.list)):
