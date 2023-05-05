@@ -5,12 +5,12 @@ def generate_questions():
     # Create question list
     questions = QuestionList()
 
-    # Generate 25 of each type of question and shuffle their order
+    # Generate 5 of each type of question and shuffle their order
     questions.generate_questions([
-        (25, 'prefix_infix_postfix'),
-        (25, 'boolean_algebra'),
-        (25, 'number_systems'),
-        (25, 'graph_theory')],
+        (5, 'prefix_infix_postfix'),
+        (5, 'boolean_algebra'),
+        (5, 'number_systems'),
+        (5, 'graph_theory')],
         shuffle=True
     )
 
@@ -22,7 +22,7 @@ def generate_questions():
 
 def main():
     # Create question list
-    # generate_questions()
+    generate_questions()
 
     # Load question list
     questions = QuestionList('data/questions_1.pkl')

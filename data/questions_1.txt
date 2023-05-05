@@ -1,20 +1,106 @@
 Question 1: 
-Is (((0 | D) & P) | (P | (~D))) satisfiable?
-Yes
+Simplify (((G | (~D)) | D) | (D | G)).
+True
 
 Question 2: 
-Identify all satisfying assignments for ((D & B) & (B & (B & (~0)))).
-{B: True, D: True}
+How many more 1s are in the binary representations of (decimal) numbers from 18 to 24 than from 20 to 23?
+7
 
 Question 3: 
-How many ordered pairs make (((~0) | (~K)) | (K | (~W))) true?
-0 pairs make (((~0) | (~K)) | (K | (~W))) true.
+Order these numbers largest to smallest: 795_10, 2475_8, b503_16
+b503_16, 2475_8, 795_10
 
 Question 4: 
-Simplify ((((M | M) & M) | (~M)) & M).
-M
+Identify all satisfying assignments for (((~C) | (~C)) | (~(A & C))).
+{A: False, C: False}
+{A: True, C: False}
+{A: False, C: True}
 
 Question 5: 
-How many ordered pairs make (((H & H) | (W & W)) | (~H)) false?
-All pairs make (((H & H) | (W & W)) | (~H)) false.
+How many paths of length 4 are there in the graph with vertices ['A', 'B', 'C', 'D', 'E'] and edges [('A', 'D'), ('A', 'E')].
+No paths exist.
+
+Question 6: 
+Identify all of the simple paths from vertex D to vertex F in the graph with vertices ['A', 'B', 'C', 'D', 'E', 'F'] and edges [('A', 'C'), ('A', 'E'), ('C', 'D'), ('D', 'E'), ('E', 'F')].
+There are 2 paths. The paths are ['DCAEF', 'DEF'].
+
+Question 7: 
+How many ordered pairs make (((M | (~M)) & K) & (M & M)) false?
+3 pairs make (((M | (~M)) & K) & (M & M)) false.
+
+Question 8: 
+Is (D & ((D & D) | (H & (~H)))) satisfiable?
+Yes
+
+Question 9: 
+Convert (101101)_2 to base 8.
+55
+
+Question 10: 
+Evaluate the prefix expression: + ^ 8 8 + 7 3
+10
+
+Question 11: 
+Evaluate the postfix expression: 2 1 / 7 3 - *
+8
+
+Question 12: 
+List all simple paths of length 3 starting from vertex E in the graph with vertices ['A', 'B', 'C', 'D', 'E'] and edges [('A', 'B'), ('A', 'D'), ('A', 'E'), ('B', 'C'), ('B', 'D'), ('B', 'E')].
+There are 5 paths. The paths are ['EABC', 'EABD', 'EADB', 'EBAD', 'EBDA'].
+
+Question 13: 
+List all edges of a complete graph with 5 vertices by using V = [0, 1, 2, 3, 4, 5].
+[(0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 2), (1, 3), (1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (3, 4), (3, 5), (4, 5)]
+
+Question 14: 
+Evaluate (7372)_8 + (14511)_8 + (12524)_8 and express the answer in base 8.
+36627
+
+Question 15: 
+Find the prefix expression for this expression tree:
+*
+╠══ *
+║   ╠══ 6
+║   ╚══ 7
+╚══ +
+    ╠══ 1
+    ╚══ 1
+
+* + 1 1 * 7 6
+
+Question 16: 
+Find the infix expression for this expression tree:
++
+╠══ +
+║   ╠══ 6
+║   ╚══ 9
+╚══ -
+    ╠══ 3
+    ╚══ 6
+
+( 6 - 3 ) + ( 9 + 6 )
+
+Question 17: 
+Find the postfix expression for this expression tree:
++
+╠══ -
+║   ╠══ 2
+║   ╚══ 8
+╚══ /
+    ╠══ 3
+    ╚══ 7
+
+7 3 / 8 2 - +
+
+Question 18: 
+How many ordered pairs make (((~C) & U) | ((1 | U) & U)) true?
+1 pair makes (((~C) & U) | ((1 | U) & U)) true.
+
+Question 19: 
+Find the number of different cycles contained in the graph with vertices ['A', 'B', 'C', 'D', 'E', 'F'] and edges [('A', 'B'), ('A', 'C'), ('A', 'D'), ('A', 'E'), ('B', 'C'), ('B', 'E'), ('B', 'F'), ('D', 'E'), ('D', 'F'), ('E', 'F')].
+There are 21 cycles in the graph.
+
+Question 20: 
+Given the two colors #E06D97 and #9023C2, what is the difference between the hexadecimal values of the blue color components?
+2B
 

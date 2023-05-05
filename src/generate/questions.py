@@ -139,7 +139,7 @@ class QuestionList:
 
     def print_questions(self):
         for i in range(len(self.list)):
-            print("Problem " + str(i + 1) + ":")
+            print("Question " + str(i + 1) + ":")
             self.list[i].print_output()
             print("\n")
 
