@@ -26,6 +26,7 @@ BASE_8_LOWER, BASE_8_UPPER = 1000, 7777     # Range for base 8 values
 BASE_10_LOWER, BASE_10_UPPER = 100, 1000    # Range for base 10 values
 BASE_16_LOWER, BASE_16_UPPER = 4096, 65535  # Range for base 16 values
 
+CURRENT = 1
 
 def config(type=None, range=None, terms=None, count=None,
            lower_limit=None, upper_limit=None,
@@ -38,20 +39,20 @@ def config(type=None, range=None, terms=None, count=None,
            BASE_2_LOWER, BASE_2_UPPER, BASE_8_LOWER, BASE_8_UPPER, \
            BASE_10_LOWER, BASE_10_UPPER, BASE_16_LOWER, BASE_16_UPPER
     
-    if type: TYPE = type
-    if lower_limit: LOWER_LIMIT = lower_limit
-    if upper_limit: UPPER_LIMIT = upper_limit
-    if range: RANGE = range
-    if terms: TERMS = terms
-    if count: COUNT = count
-    if base_2_lower: BASE_2_LOWER = base_2_lower
-    if base_2_upper: BASE_2_UPPER = base_2_upper
-    if base_8_lower: BASE_8_LOWER = base_8_lower
-    if base_8_upper: BASE_8_UPPER = base_8_upper
-    if base_10_lower: BASE_10_LOWER = base_10_lower
-    if base_10_upper: BASE_10_UPPER = base_10_upper
-    if base_16_lower: BASE_16_LOWER = base_16_lower
-    if base_16_upper: BASE_16_UPPER = base_16_upper
+    if type != None: TYPE = type
+    if lower_limit != None: LOWER_LIMIT = lower_limit
+    if upper_limit != None: UPPER_LIMIT = upper_limit
+    if range != None: RANGE = range
+    if terms != None: TERMS = terms
+    if count != None: COUNT = count
+    if base_2_lower != None: BASE_2_LOWER = base_2_lower
+    if base_2_upper != None: BASE_2_UPPER = base_2_upper
+    if base_8_lower != None: BASE_8_LOWER = base_8_lower
+    if base_8_upper != None: BASE_8_UPPER = base_8_upper
+    if base_10_lower != None: BASE_10_LOWER = base_10_lower
+    if base_10_upper != None: BASE_10_UPPER = base_10_upper
+    if base_16_lower != None: BASE_16_LOWER = base_16_lower
+    if base_16_upper != None: BASE_16_UPPER = base_16_upper
 
 
 # Color component difference
@@ -74,7 +75,9 @@ def generate_question_1():
         return f'{diff:02X}'
     
     color1, color2, component = question()
+    print("Question:")
     print(f"Given the two colors {color1} and {color2}, what is the difference between the hexadecimal values of the {component} color components?")
+    print("Answer:")
     print(answer(color1, color2, component))
 
 
@@ -113,7 +116,9 @@ def generate_question_2():
         return str(count1 - count2)
     
     range1, range2 = question()
+    print("Question:")
     print(f"How many more 1s are in the binary representations of (decimal) numbers from {range1[0]} to {range1[1]} than from {range2[0]} to {range2[1]}?")
+    print("Answer:")
     print(answer(range1, range2))
 
 
@@ -140,7 +145,9 @@ def generate_question_3():
         elif target_base == 16: return hex(int(num, base))[2:]
 
     num, base, target_base = question()
+    print("Question:")
     print(f"Convert ({num})_{base} to base {target_base}.")
+    print("Answer:")
     print(answer(num, base, target_base))
 
 
@@ -171,7 +178,9 @@ def generate_question_4():
         elif target_base == 16: return hex(result_base_10)[2:]
 
     nums, base, target_base = question()
+    print("Question:")
     print(f"Evaluate {' + '.join([f'({num})_{base}' for num in nums])} and express the answer in base {target_base}.")
+    print("Answer:")
     print(answer(nums, base, target_base))
 
 
@@ -205,18 +214,23 @@ def generate_question_5():
         return [(val[1], val[2]) for val in sorted_vals]
 
     values = question(COUNT)
+    print("Question:")
     print(f"Order these numbers largest to smallest: {', '.join([f'{num}_{base}' for num, base in values])}")
+    print("Answer:")
     sorted_values = answer(values)
     print(', '.join([f'{num}_{base}' for num, base in sorted_values]))
 
 
 
 def main():
-    global TYPE
+    global TYPE, CURRENT
 
     if TYPE == 0:
-        num = random.randint(1, 5)
-        eval(f'generate_question_{num}()')
+        eval(f'generate_question_{CURRENT}()')
+        if CURRENT == 5:
+            CURRENT = 1
+        else:
+            CURRENT += 1
     else:
         eval(f'generate_question_{TYPE}()')
 

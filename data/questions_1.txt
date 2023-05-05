@@ -1,0 +1,20 @@
+Question 1: 
+Is (((0 | D) & P) | (P | (~D))) satisfiable?
+Yes
+
+Question 2: 
+Identify all satisfying assignments for ((D & B) & (B & (B & (~0)))).
+{B: True, D: True}
+
+Question 3: 
+How many ordered pairs make (((~0) | (~K)) | (K | (~W))) true?
+0 pairs make (((~0) | (~K)) | (K | (~W))) true.
+
+Question 4: 
+Simplify ((((M | M) & M) | (~M)) & M).
+M
+
+Question 5: 
+How many ordered pairs make (((H & H) | (W & W)) | (~H)) false?
+All pairs make (((H & H) | (W & W)) | (~H)) false.
+

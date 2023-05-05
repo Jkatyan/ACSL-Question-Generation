@@ -20,11 +20,13 @@ DEPTH = 2
 ALGEBRA = False
 FORCE_ALGEBRA = False
 
+CURRENT = 1
+
 def config(type=None, depth=None, algebra=None):
     global TYPE, DEPTH, ALGEBRA
-    if type: TYPE = type
-    if depth: DEPTH = depth
-    if algebra: ALGEBRA = algebra
+    if type != None: TYPE = type
+    if depth != None: DEPTH = depth
+    if algebra != None: ALGEBRA = algebra
 
 def build_random_tree(depth, algebra):
     global FORCE_ALGEBRA
@@ -224,28 +226,34 @@ def evaluate_postfix(expression):
 def generate_question_1():
     global DEPTH, ALGEBRA
 
+    print("Question:")
     print("Find the prefix expression for this expression tree:")
     expression_tree = build_random_tree(DEPTH, ALGEBRA)
     expression_tree.show(line_type="ascii-em")
     prefix, postfix, infix = traversals(expression_tree)
+    print("Answer:")
     print(prefix)
 
 def generate_question_2():
     global DEPTH, ALGEBRA
 
+    print("Question:")
     print("Find the postfix expression for this expression tree:")
     expression_tree = build_random_tree(DEPTH, ALGEBRA)
     expression_tree.show(line_type="ascii-em")
     prefix, postfix, infix = traversals(expression_tree)
+    print("Answer:")
     print(postfix)
 
 def generate_question_3():
     global DEPTH, ALGEBRA
 
+    print("Question:")
     print("Find the infix expression for this expression tree:")
     expression_tree = build_random_tree(DEPTH, ALGEBRA)
     expression_tree.show(line_type="ascii-em")
     prefix, postfix, infix = traversals(expression_tree)
+    print("Answer:")
     print(infix)
 
 def generate_question_4():
@@ -260,7 +268,9 @@ def generate_question_4():
         prefix, postfix, infix = traversals(expression_tree)
         ans = evaluate_prefix(prefix)
 
+    print("Question:")
     print(f"Evaluate the prefix expression: {prefix}")
+    print("Answer:")
     print(ans)
 
 def generate_question_5():
@@ -275,7 +285,9 @@ def generate_question_5():
         prefix, postfix, infix = traversals(expression_tree)
         ans = evaluate_postfix(postfix)
 
+    print("Question:")
     print(f"Evaluate the postfix expression: {postfix}")
+    print("Answer:")
     print(ans)
 
 def generate_question_6():
@@ -297,7 +309,9 @@ def generate_question_6():
     elif b == 1: strB = 'postfix'
     else: strB = 'infix'
 
+    print("Question:")
     print(f"Convert {strA} to {strB}: {expressions[a]}")
+    print("Answer:")
     print(expressions[b])
 
 def generate_question_7():
@@ -323,50 +337,71 @@ def generate_question_7():
     elif b == 1: strB = 'postfix'
     else: strB = 'infix'
 
+    print("Question:")
     print(f"Convert {strA} to {strB}: {expressions[a]}")
+    print("Answer:")
     print(expressions[b])
 
 def generate_question_8():
     global DEPTH, ALGEBRA, FORCE_ALGEBRA
 
+    print("Question:")
     print("Find the prefix expression for this expression tree:")
     FORCE_ALGEBRA = True
     expression_tree = build_random_tree(DEPTH, ALGEBRA)
     expression_tree.show(line_type="ascii-em")
     FORCE_ALGEBRA = False
     prefix, postfix, infix = traversals(expression_tree)
+    print("Answer:")
     print(prefix)
 
 def generate_question_9():
     global DEPTH, ALGEBRA, FORCE_ALGEBRA
 
+    print("Question:")
     print("Find the postfix expression for this expression tree:")
     FORCE_ALGEBRA = True
     expression_tree = build_random_tree(DEPTH, ALGEBRA)
     expression_tree.show(line_type="ascii-em")
     FORCE_ALGEBRA = False
     prefix, postfix, infix = traversals(expression_tree)
+    print("Answer:")
     print(postfix)
 
 def generate_question_10():
     global DEPTH, ALGEBRA, FORCE_ALGEBRA
 
+    print("Question:")
     print("Find the infix expression for this expression tree:")
     FORCE_ALGEBRA = True
     expression_tree = build_random_tree(DEPTH, ALGEBRA)
     expression_tree.show(line_type="ascii-em")
     FORCE_ALGEBRA = False
     prefix, postfix, infix = traversals(expression_tree)
+    print("Answer:")
     print(infix)
 
 def main():
-    global TYPE
+    global TYPE, CURRENT
 
     if TYPE == 0:
-        num = random.randint(1, 10)
-        eval(f'generate_question_{num}()')
+        while True:
+            try:
+                eval(f'generate_question_{CURRENT}()')
+                if CURRENT == 10:
+                    CURRENT = 1
+                else:
+                    CURRENT += 1
+                break
+            except:
+                pass
     else:
-        eval(f'generate_question_{TYPE}()')
-
+        while True:
+            try:
+                eval(f'generate_question_{TYPE}()')
+                break
+            except:
+                pass
+            
 if __name__ == '__main__':
     main()

@@ -24,20 +24,28 @@ NUM_NODES_UPPER = 6     # Largest number of nodes generated
 RANDOM_VERTICES_LOWER = 5   # Smallest number of vertices to computer number of edges for
 RANDOM_VERTICES_UPPER = 10  # Largest number of vertices to computer number of edges for
 
-# Globals: Image count
+# Globals: Images
 COUNT = 1
+GENERATE_IMAGES = False
+QUESTION_LIST_COUNT = 1
 
-def config(type=None, draw_graph=None, num_nodes_lower=None, num_nodes_upper=None, random_vertices_lower=None, random_vertices_upper=None):
-    global TYPE, NUM_NODES_LOWER, NUM_NODES_UPPER, RANDOM_VERTICES_LOWER, RANDOM_VERTICES_UPPER
+CURRENT = 1
 
-    if type: TYPE = type
-    if num_nodes_lower: NUM_NODES_LOWER = num_nodes_lower
-    if num_nodes_upper: NUM_NODES_UPPER = num_nodes_upper
-    if random_vertices_lower: RANDOM_VERTICES_LOWER = random_vertices_lower
-    if random_vertices_upper: RANDOM_VERTICES_UPPER = random_vertices_upper
+def config(type=None, num_nodes_lower=None, num_nodes_upper=None, question_list_count=None,
+           random_vertices_lower=None, random_vertices_upper=None, generate_images=None):
+    global TYPE, NUM_NODES_LOWER, NUM_NODES_UPPER, RANDOM_VERTICES_LOWER, \
+            RANDOM_VERTICES_UPPER, GENERATE_IMAGES, QUESTION_LIST_COUNT
+
+    if type != None: TYPE = type
+    if num_nodes_lower != None: NUM_NODES_LOWER = num_nodes_lower
+    if num_nodes_upper != None: NUM_NODES_UPPER = num_nodes_upper
+    if random_vertices_lower != None: RANDOM_VERTICES_LOWER = random_vertices_lower
+    if random_vertices_upper != None: RANDOM_VERTICES_UPPER = random_vertices_upper
+    if generate_images != None: GENERATE_IMAGES = generate_images
+    if question_list_count != None: QUESTION_LIST_COUNT = question_list_count
 
 def generate_random_graph():
-    global NUM_NODES_LOWER, NUM_NODES_UPPER, COUNT
+    global NUM_NODES_LOWER, NUM_NODES_UPPER, COUNT, GENERATE_IMAGES
 
     n = random.randint(NUM_NODES_LOWER, NUM_NODES_UPPER)
 
@@ -51,14 +59,14 @@ def generate_random_graph():
             if random.random() < 0.5:
                 G.add_edge(node1, node2)
 
-
-    pos = nx.spring_layout(G)
-    nx.draw(G, pos, with_labels=True)
-    sys.path.append(os.path.abspath('../../../'))
-    dir = "./data/images/image_" + str(COUNT) + ".png"
-    plt.savefig(dir)
-    plt.close()
-    COUNT += 1
+    if GENERATE_IMAGES:
+        pos = nx.spring_layout(G)
+        nx.draw(G, pos, with_labels=True)
+        sys.path.append(os.path.abspath('../../../'))
+        dir = f'./data/images_{QUESTION_LIST_COUNT}/image_{COUNT}.png'
+        plt.savefig(dir)
+        plt.close()
+        COUNT += 1
                 
     return G
 
@@ -76,12 +84,14 @@ def generate_question_1():
         return G.edges
     
     nodes, G = question()
+    print("Question:")
     print(f"List all edges of a complete graph with 5 vertices by using V = {nodes}.")
+    print("Answer:")
     print(answer(G))
 
 # Find number of cycles
 def generate_question_2():
-    global COUNT
+    global COUNT, GENERATE_IMAGES
 
     def question():
         G = generate_random_graph()
@@ -135,8 +145,11 @@ def generate_question_2():
         return len(result)
 
     nodes, edges, G = question()
+    print("Question:")
     print(f"Find the number of different cycles contained in the graph with vertices {nodes} and edges {edges}.")
-    print(f"Graph saved to data/images/image_{COUNT - 1}.")
+    if GENERATE_IMAGES:
+        print(f'Graph saved to data/images_{QUESTION_LIST_COUNT}/image_{COUNT - 1}.png')
+    print("Answer:")
     num_cycles = answer(G)
     if num_cycles == 1:
         print(f"There is 1 cycle in the graph.")
@@ -146,7 +159,7 @@ def generate_question_2():
 
 # Find all simple paths of length n from node u
 def generate_question_3():
-    global COUNT
+    global COUNT, GENERATE_IMAGES
 
     def question():
         G = generate_random_graph()
@@ -169,8 +182,11 @@ def generate_question_3():
         return paths
 
     u, n, nodes, edges, G = question()
+    print("Question:")
     print(f"List all simple paths of length {n} starting from vertex {u} in the graph with vertices {nodes} and edges {edges}.")
-    print(f"Graph saved to data/images/image_{COUNT - 1}.")
+    if GENERATE_IMAGES:
+        print(f'Graph saved to data/images_{QUESTION_LIST_COUNT}/image_{COUNT - 1}.png')
+    print("Answer:")
     paths = answer(G, u, n)
     if len(paths) == 0:
         print("No paths exist.")
@@ -181,7 +197,7 @@ def generate_question_3():
 
 # Find all simple paths between two vertices
 def generate_question_4():
-    global COUNT
+    global COUNT, GENERATE_IMAGES
 
     def question():
         G = generate_random_graph()
@@ -200,8 +216,11 @@ def generate_question_4():
         return paths
 
     a, b, nodes, edges, G = question()
+    print("Question:")
     print(f"Identify all of the simple paths from vertex {a} to vertex {b} in the graph with vertices {nodes} and edges {edges}.")
-    print(f"Graph saved to data/images/image_{COUNT - 1}.")
+    if GENERATE_IMAGES:
+        print(f'Graph saved to data/images_{QUESTION_LIST_COUNT}/image_{COUNT - 1}.png')
+    print("Answer:")
     paths = answer(G, a, b)
     if len(paths) == 0:
         print("No paths exist.")
@@ -213,7 +232,7 @@ def generate_question_4():
 
 # Find all paths of length n
 def generate_question_5():
-    global COUNT
+    global COUNT, GENERATE_IMAGES
 
     def question():
         G = generate_random_graph()
@@ -233,8 +252,11 @@ def generate_question_5():
         return paths
 
     n, nodes, edges, G = question()
+    print("Question:")
     print(f"How many paths of length {n} are there in the graph with vertices {nodes} and edges {edges}.")
-    print(f"Graph saved to data/images/image_{COUNT - 1}.")
+    if GENERATE_IMAGES:
+        print(f'Graph saved to data/images_{QUESTION_LIST_COUNT}/image_{COUNT - 1}.png')
+    print("Answer:")
     paths = answer(G, n)
     if len(paths) == 0:
         print("No paths exist.")
@@ -245,7 +267,7 @@ def generate_question_5():
 
 # Find cycles
 def generate_question_6():
-    global COUNT
+    global COUNT, GENERATE_IMAGES
 
     def question():
         G = generate_random_graph()
@@ -299,8 +321,11 @@ def generate_question_6():
         return result
 
     nodes, edges, G = question()
+    print("Question:")
     print(f"Identify all cycles contained in the graph with vertices {nodes} and edges {edges}.")
-    print(f"Graph saved to data/images/image_{COUNT - 1}.")
+    if GENERATE_IMAGES:
+        print(f'Graph saved to data/images_{QUESTION_LIST_COUNT}/image_{COUNT - 1}.png')
+    print("Answer:")
     cycles = answer(G)
     if len(cycles) == 0:
         print(f"There are no cycles.")
@@ -318,15 +343,26 @@ def generate_question_7():
         return n * (n - 1) // 2
 
     n = question()
+    print("Question:")
     print(f"How many edges are there in a complete graph with {n} vertices?")
+    print("Answer:")
     print(f"There are {answer(n)} edges.")
 
 def main():
-    global TYPE
+    global TYPE, GENERATE_IMAGES, QUESTION_LIST_COUNT, CURRENT
+
+    if GENERATE_IMAGES:
+        sys.path.append(os.path.abspath('../../../'))
+        dir = f'./data/images_{QUESTION_LIST_COUNT}'
+        if not os.path.exists(dir):
+            os.mkdir(dir)
 
     if TYPE == 0:
-        num = random.randint(1, 7)
-        eval(f'generate_question_{num}()')
+        eval(f'generate_question_{CURRENT}()')
+        if CURRENT == 7:
+            CURRENT = 1
+        else:
+            CURRENT += 1
     else:
         eval(f'generate_question_{TYPE}()')
 

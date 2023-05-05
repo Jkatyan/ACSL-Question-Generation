@@ -21,13 +21,15 @@ VARS = 3
 UNIQUE = 2
 CONST = False
 
+CURRENT = 1
+
 def config(type=None, n=None, vars=None, unique=None, const=None):
     global TYPE, N, VARS, UNIQUE, CONST
-    if type: TYPE = type
-    if n: N = n
-    if vars: VARS = vars
-    if unique: UNIQUE = unique
-    if const: CONST = const
+    if type != None: TYPE = type
+    if n != None: N = n
+    if vars != None: VARS = vars
+    if unique != None: UNIQUE = unique
+    if const != None: CONST = const
 
 def generate_question_1():
     global N, VARS, UNIQUE, CONST
@@ -35,6 +37,7 @@ def generate_question_1():
     # Question
     root = random_binary_tree(N, VARS, UNIQUE, CONST)
     logic_str = tree_str(root)
+    print("Question:")
     print(f"Simplify {logic_str}.")
     
     # Answer
@@ -42,6 +45,7 @@ def generate_question_1():
     logic_str = logic_str.replace('1', 'y')
     logic_exp = parse_expr(logic_str).subs({x: False, y: True})
     simplified_str = simplify_logic(logic_exp)
+    print("Answer:")
     print(simplified_str)
 
 def generate_question_2():
@@ -50,6 +54,7 @@ def generate_question_2():
     # Question
     root = random_binary_tree(N, VARS, UNIQUE, CONST)
     logic_str = tree_str(root)
+    print("Question:")
     print(f"Is {logic_str} satisfiable?")
     
     # Answer
@@ -58,6 +63,7 @@ def generate_question_2():
     logic_exp = parse_expr(logic_str).subs({x: False, y: True})
     simplified_str = simplify_logic(logic_exp)
     valid = satisfiable(simplified_str)
+    print("Answer:")
     print("No" if not valid else "Yes")
 
 def generate_question_3():
@@ -66,6 +72,7 @@ def generate_question_3():
     # Question
     root = random_binary_tree(N, VARS, UNIQUE, CONST)
     logic_str = tree_str(root)
+    print("Question:")
     print(f"Identify all satisfying assignments for {logic_str}.")
     
     # Answer
@@ -75,6 +82,7 @@ def generate_question_3():
     simplified_str = simplify_logic(logic_exp)
     models = satisfiable(simplified_str, all_models=True)
 
+    print("Answer:")
     empty = True
     for model in models:
         if model:
@@ -98,6 +106,7 @@ def generate_question_4():
     # Question
     root = random_binary_tree(N, VARS, UNIQUE, CONST)
     logic_str = tree_str(root)
+    print("Question:")
     print(f"How many ordered pairs make {logic_str} true?")
     
     # Answer
@@ -110,6 +119,7 @@ def generate_question_4():
     logic_str = logic_str.replace('x', '0')
     logic_str = logic_str.replace('y', '1')
 
+    print("Answer:")
     count = 0
     for model in models:
         if model:
@@ -134,6 +144,7 @@ def generate_question_5():
     # Question
     root = random_binary_tree(N, VARS, UNIQUE, CONST)
     logic_str = tree_str(root)
+    print("Question:")
     print(f"How many ordered pairs make {logic_str} false?")
 
     # Answer
@@ -146,6 +157,7 @@ def generate_question_5():
     logic_str = logic_str.replace('x', '0')
     logic_str = logic_str.replace('y', '1')
 
+    print("Answer:")
     count = 0
     for model in models:
         if model:
@@ -170,6 +182,7 @@ def generate_question_6():
     # Question
     root = random_binary_tree(N, VARS, UNIQUE, CONST)
     logic_str = tree_str(root)
+    print("Question:")
     print(f"Is {logic_str} a tautology?")
     
     # Answer
@@ -178,17 +191,21 @@ def generate_question_6():
     logic_exp = parse_expr(logic_str).subs({x: False, y: True})
     simplified_str = simplify_logic(logic_exp)
     
+    print("Answer:")
     if simplified_str == True:
         print("Yes, this is a tautology.")
     else:
         print("No, this is not a tautology.")
 
 def main():
-    global TYPE
+    global TYPE, CURRENT
 
     if TYPE == 0:
-        num = random.randint(1, 6)
-        eval(f'generate_question_{num}()')
+        eval(f'generate_question_{CURRENT}()')
+        if CURRENT == 6:
+            CURRENT = 1
+        else:
+            CURRENT += 1
     else:
         eval(f'generate_question_{TYPE}()')
 
